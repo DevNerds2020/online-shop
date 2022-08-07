@@ -6,11 +6,11 @@ const Container = ({ children }) => {
         <div
             className={css`
                 display: flex;
-                flex-wrap: wrap;
                 flex-direction: column;
-                margin-right: 40px;
+                margin-right: 70px;
                 justify-content: space-evenly;
                 align-items: center;
+                height: 100%;
                 `}
         >
             {children}

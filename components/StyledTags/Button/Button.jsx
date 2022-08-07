@@ -9,6 +9,7 @@ const Button = (props) => {
             onClick={handleClick}
             className={css`
             display: flex;
+            flex-direction: row-reverse;
             justify-content: center;
             align-items: center;
             padding: 10px;
@@ -18,7 +19,12 @@ const Button = (props) => {
                 color: darkblue;
                 transform: scale(1.2);
             }`}>
-            <div>{text}</div>
+            <div
+                className={css`
+                margin-left: 5px;
+            `}>
+                {text}
+            </div>
             {React.cloneElement(icon, { size: '1.5em' })}
         </div>
     )

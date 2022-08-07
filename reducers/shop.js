@@ -10,36 +10,24 @@ const initialState = {
 const shopReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM:
-            return {
-                ...state,
-                products: [...state.products, action.payload],
+            let product = state.products.find(product => product.id === action.item.id)
+            if (product) {
+                product.count += 1
+            } else {
+                return {
+                    ...state,
+                    products: [...state.products, { ...action.item, count: 1 }],
+                }
             }
         case REMOVE_ITEM:
-            return {
-                ...state,
-                cart: state.cart.filter(item => item.id !== action.payload),
-            }
-        case 'ADD_TO_CART':
-            return {
-                ...state,
-                cart: [...state.cart, action.payload],
-                cartTotal: state.cartTotal + action.payload.price,
-            }
-        case 'REMOVE_FROM_CART':
-            return {
-                ...state,
-                cart: state.cart.filter(product => product.id !== action.payload),
-                cartTotal: state.cartTotal - action.payload.price,
-            }
-        case 'UPDATE_TOTAL':
-            return {
-                ...state,
-                total: state.total + action.payload,
-            }
-        case 'UPDATE_CART_TOTAL':
-            return {
-                ...state,
-                cartTotal: action.payload,
+            product = state.products.find(product => product.id === action.id)
+            if (product && product.count > 1) {
+                product.count -= 1
+            } else {
+                return {
+                    ...state,
+                    products: state.products.filter(item => item.id !== action.id),
+                }
             }
         default:
             return state

@@ -29,7 +29,7 @@ const ProductsList = () => {
             padding: 0 20px;
         `}>
             {products && products.map(product => (
-               <Product key={product.id} product={product} />
+                <Product key={product.id} product={product} type={'productList'} />
             ))}
         </div>
     )

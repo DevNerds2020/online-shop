@@ -4,6 +4,7 @@ import { ShoppingCart } from '@emotion-icons/entypo/ShoppingCart'
 import { css, cx } from '@emotion/css'
 
 import Button from '../StyledTags/Button/Button'
+import { calculateTotalCount } from '../../helper/shop.helper'
 
 const ShoppingBag = () => {
     const { products } = useSelector(state => state.shop)
@@ -33,7 +34,7 @@ const ShoppingBag = () => {
                     background-color: aliceblue;
 
                 `}>
-                {products.length}
+                {calculateTotalCount(products)}
             </div>
         </div>
     )
