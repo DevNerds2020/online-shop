@@ -10,6 +10,7 @@ const Container = ({ children }) => {
                 flex-direction: column;
                 margin-right: 40px;
                 justify-content: space-evenly;
+                align-items: center;
                 `}
         >
             {children}

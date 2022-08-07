@@ -1,7 +1,10 @@
 import React from 'react'
+
 import Container from './Container/Container'
 import Logo from './Logo/Logo'
 import CustomLink from '../../components/StyledTags/CustomLink/CustomLink'
+import ShoppingBag from '../ShoppingBag/ShoppingBag'
+
 const Navigation = () => {
     return (
         <Container>
@@ -14,6 +17,9 @@ const Navigation = () => {
                 <Logo>
                     MegabizShop
                 </Logo>
+                <CustomLink url='shop/cart' >
+                    <ShoppingBag />
+                </CustomLink>
             </Container>
         </Container>
     )

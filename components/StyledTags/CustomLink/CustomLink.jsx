@@ -2,12 +2,14 @@ import React from 'react'
 import { css, cx } from '@emotion/css'
 import Link from 'next/link'
 
-const CustomLink = ({ name, url, params = {} }) => {
+const CustomLink = ({ name, url, params = {}, children }) => {
     return (
         <Link href={{ pathname: `/${url}`, query: params}} >
             <a
                 className={css`
-                padding: 10px;  
+                display: flex;
+                text-decoration: none;
+                padding: 7px;  
                 cursor: pointer;
                 text-decoration: none;
                 &:hover {
@@ -16,7 +18,7 @@ const CustomLink = ({ name, url, params = {} }) => {
                 }
             `}
             >
-                {name}
+                {name ? name : children}
             </a>
         </Link >
     )
